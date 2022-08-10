@@ -37,15 +37,15 @@ const getUserById = (userId) => {
 
 const addNewUser = (body) => {
   return new Promise((resolve, reject) => {
-    const { name, email, status } = body;
+    const { name: newUserName, email: newUserEmail, status } = body;
     const newUser = {
       id: uuid.v4(),
-      name: name,
-      email: email,
+      name: newUserName,
+      email: newUserEmail,
       status: status,
     };
 
-    if (!name || !email) {
+    if (!newUserName || !newUserEmail) {
       reject({
         msg: `Não foi possível realizar a solicitação. Por favor, verifique se preencheu os campos de nome e email.`,
       });
