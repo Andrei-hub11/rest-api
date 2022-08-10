@@ -63,8 +63,7 @@ const putUserById = (userId, body) => {
         const { name: nameUp, email: emailUp } = body;
         members[i].name = nameUp ? nameUp : members[i].name;
         members[i].email = emailUp ? emailUp : members[i].email;
-        /*  members.splice(index, 1);
-      return `Usuário deletado com sucesso`; */
+
         resolve(`Usuário atualizado com sucesso`);
       } else if (i === members.length - 1) {
         reject({ msg: `Usuário com id ${userId} não foi encontrado` });

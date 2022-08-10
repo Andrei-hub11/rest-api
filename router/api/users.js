@@ -3,14 +3,14 @@ const router = express.Router();
 const userServices = require("../../services/userServices");
 
 router.get("/", (req, res) => {
-  const allUsers = userServices.getAllUsers();
-  res.json(allUsers);
+  const result = userServices.getAllUsers();
+  res.json(result);
 });
 
 router.get("/:id", async (req, res) => {
   try {
-    const searchUser = await userServices.getUserById(req.params.id);
-    res.status(200).json(searchUser);
+    const result = await userServices.getUserById(req.params.id);
+    res.status(200).json(result);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
